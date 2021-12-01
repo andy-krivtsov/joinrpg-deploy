@@ -44,7 +44,7 @@ parameters:
 - name: chartRegistry
   displayName: 'Helm chart registry'
   type: string
-  default: 'joinrpg.azurecr.io'
+  default: "joinrpg.azurecr.io"
 
 - name: chartName
   displayName: 'Helm chart name with path'
