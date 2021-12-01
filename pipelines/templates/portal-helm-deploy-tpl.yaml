@@ -107,6 +107,7 @@ jobs:
             ScriptType: FilePath
             ScriptPath: $(Build.SourcesDirectory)/scripts/portal/Prepare-ChartValues.ps1
             scriptArguments:
+              -ImageName '$(imageName)'
               -ImageTag '${{ parameters.imageTag }}'
               -VaultName '$(keyVaultName)'
               -Prefix '${{ parameters.keyVaultPrefix }}'
