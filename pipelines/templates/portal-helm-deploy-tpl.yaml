@@ -41,7 +41,7 @@ parameters:
   type: string
   default: 'Deployment'
 
-- name: chartRegistry
+- name: chartRegistryUrl
   displayName: 'Helm chart registry'
   type: string
   default: "joinrpg.azurecr.io"
@@ -87,7 +87,7 @@ jobs:
               releaseName = "${{ parameters.releaseName }}"; 
               namespace = "${{ parameters.namespace }}"; 
               environment = "${{ parameters.environment }}"
-              chartRegistry = "${{ parameters.chartRegistry }}"
+              chartRegistryUrl = "${{ parameters.chartRegistryUrl }}"
               chartName = "${{ parameters.chartName }}"
               chartVersion = "${{ parameters.chartVersion }}"
             }
@@ -142,7 +142,7 @@ jobs:
             useClusterAdmin: true            
             namespace: ${{ parameters.namespace }}
             command: upgrade
-            chartName: ${{ parameters.chartRegistry }}/${{ parameters.chartName }}
+            chartName: ${{ parameters.chartRegistryUrl }}/${{ parameters.chartName }}
             valueFile: $(Pipeline.Workspace)/deploy-values.yaml
             releaseName: ${{ parameters.releaseName }}
             install: true
