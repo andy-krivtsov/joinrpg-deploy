@@ -1,0 +1,23 @@
+# Default values for portal.
+serviceName: join-portal
+
+replicaCount: 1
+
+image:
+  registry: "joinrpg.azurecr.io"
+  name: joinrpg.portal
+  tag: latest
+
+secrets: {}
+
+environment: Production
+
+podAnnotations: {}
+
+resources: {}
+
+ingress:
+  host: ""
+  path: "/"
+  clusterIssuer: "letsencrypt-prod"
+
