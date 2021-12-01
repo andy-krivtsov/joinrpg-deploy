@@ -128,7 +128,13 @@ jobs:
             command: run
             containerRegistry: $(registryServiceConnection)
             arguments: --rm -e ConnectionStrings__DefaultConnection="$(DefaultConnection)" $(containerRegistry)/$(migratorImageName):${{ parameters.imageTag }}
-          
+
+        ##==========================================================================
+        ## Helm registry login
+        ##==========================================================================
+        - bash: echo $(acrLoginPassword) | helm registry login $(containerRegistry) --username $(acrLoginName) --password-stdin
+          displayName: "Helm ACR login"
+
         ##==========================================================================
         ## Deploy Helm chart
         ##==========================================================================
