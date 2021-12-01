@@ -1,0 +1,28 @@
+﻿variables:
+  HELM_EXPERIMENTAL_OCI: 1
+  buildVmImageName: 'ubuntu-latest'
+
+  azureSubscription: 'JoinRPG-subscription-connection'
+  rgName: 'joinrpg-k8s'
+  aksName: 'join-main'
+  keyVaultName: "joinrpg-k8s-kv" 
+  containerRegistry: 'joinrpg.azurecr.io'
+  registryServiceConnection: 'JoinRPG-ACR-connection'
+
+  dockerfilePath: 'src/JoinRpg.Portal/Dockerfile'
+  migratorDockerfilePath: 'src/Joinrpg.Dal.Migrate/Dockerfile'
+  
+  imageName: 'cdcd-dev/joinrpg.portal'
+  migratorImageName: 'cdcd-dev/joinrpg.migrate'
+  
+  devNamespace: 'dev2'
+  devIngressHostName: 'dev2.k8s.joinrpg.ru'
+  devKeyVaultPrefix: 'dev-'
+  devEnvironment: 'Join-k8s-dev.dev2'
+  
+  prodNamespace: 'dev3'
+  prodIngressHostName: 'prod2.k8s.joinrpg.ru'
+  prodKeyVaultPrefix: 'dev-'
+  prodEnvironment: 'Join-k8s-dev.dev3'
+
+  

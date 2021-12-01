@@ -1,0 +1,29 @@
+parameters:
+  - name: imageTag
+    displayName: Image Tag
+    type: string
+    default: latest
+
+trigger: {}
+
+pr: none
+
+variables:
+  - template: "portal-k8s-vars.dev.yaml"
+
+stages:
+  - stage: Deploy_Dev
+    displayName: Deploy Dev/Stage
+
+    jobs:
+      - template: templates/portal-helm-deploy-tpl.yaml
+        parameters:
+          name: 'Deploy_Dev'
+          displayName: 'Dev: deploy to $(devNamespace) namespace'
+          imageTag: "${{ parameters.imageTag }}"
+          ingressHostName: '$(devIngressHostName)'
+          keyVaultPrefix: '$(devKeyVaultPrefix)'
+          releaseName: 'joinrpg-portal'
+          namespace: '$(devNamespace)'
+          environment: '$(devEnvironment)'
+    
