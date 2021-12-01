@@ -111,7 +111,7 @@ jobs:
             azureSubscription: $(azureSubscription)
             azurePowerShellVersion: LatestVersion
             ScriptType: FilePath
-            ScriptPath: $(Pipeline.Workspace)/scripts/portal/Prepare-ChartValues.ps1
+            ScriptPath: $(Build.SourcesDirectory)/scripts/portal/Prepare-ChartValues.ps1
             scriptArguments:
               -ImageTag '${{ parameters.imageTag }}'
               -VaultName '$(keyVaultName)'
